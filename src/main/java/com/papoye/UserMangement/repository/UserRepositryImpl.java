@@ -120,4 +120,24 @@ public class UserRepositryImpl implements UserRepository {
 		return (User) criteria.uniqueResult();
 	}
 
+	/**
+	 * This is method for get admin user by user name.
+	 * 
+	 * @param It
+	 *            takes username
+	 * @return Its return User object that is associated with given user name
+	 */
+	@Override
+	public User getAdminByUserName(String username) throws Exception {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				User.class);
+		if (username.contains("@")) {
+			criteria.add(Restrictions.eq("email", username));
+		} else {
+			criteria.add(Restrictions.eq("mobileNumber", username));
+		}
+		criteria.add(Restrictions.eq("role", Role.ADMIN));
+		return (User) criteria.uniqueResult();
+	}
+
 }

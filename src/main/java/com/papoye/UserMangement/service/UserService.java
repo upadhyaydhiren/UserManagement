@@ -23,4 +23,6 @@ public interface UserService {
 	public User updateUser(User user) throws Exception;
 
 	public User getUserByUserName(String username) throws Exception;
+
+	public User getAdminByUserName(String username) throws Exception;
 }

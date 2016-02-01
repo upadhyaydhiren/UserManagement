@@ -52,4 +52,9 @@ public class UserServiceImpl implements UserService {
 	public void Save(User user) throws Exception {
 		userRepository.Save(user);
 	}
+
+	@Override
+	public User getAdminByUserName(String username) throws Exception {
+		return userRepository.getAdminByUserName(username);
+	}
 }

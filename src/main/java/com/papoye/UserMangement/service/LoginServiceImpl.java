@@ -30,7 +30,7 @@ public class LoginServiceImpl implements UserDetailsService {
 			throws UsernameNotFoundException {
 		UserDetails userDetails = null;
 		try {
-			User user = userService.getUserByUserName(username);
+			User user = userService.getAdminByUserName(username);
 			String fetechedUsername;
 			if (user == null) {
 				return null;
